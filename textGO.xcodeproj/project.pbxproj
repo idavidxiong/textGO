@@ -12,6 +12,9 @@
 		6BA9678E21F22CF100DE5331 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9678C21F22CF100DE5331 /* MainMenu.xib */; };
 		6BA9679A21F22CF200DE5331 /* textGOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9679921F22CF200DE5331 /* textGOTests.swift */; };
 		6BA967A521F22CF200DE5331 /* textGOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967A421F22CF200DE5331 /* textGOUITests.swift */; };
+		6BA967B421F2306800DE5331 /* TextGOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967B221F2306800DE5331 /* TextGOViewController.swift */; };
+		6BA967B521F2306800DE5331 /* TextGOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA967B321F2306800DE5331 /* TextGOViewController.xib */; };
+		6BA967B721F2358700DE5331 /* PopoverMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967B621F2358700DE5331 /* PopoverMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		6BA967A021F22CF200DE5331 /* textGOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = textGOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA967A421F22CF200DE5331 /* textGOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textGOUITests.swift; sourceTree = "<group>"; };
 		6BA967A621F22CF200DE5331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BA967B221F2306800DE5331 /* TextGOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGOViewController.swift; sourceTree = "<group>"; };
+		6BA967B321F2306800DE5331 /* TextGOViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextGOViewController.xib; sourceTree = "<group>"; };
+		6BA967B621F2358700DE5331 /* PopoverMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +100,14 @@
 		6BA9678721F22CF000DE5331 /* textGO */ = {
 			isa = PBXGroup;
 			children = (
+				6BA967B621F2358700DE5331 /* PopoverMonitor.swift */,
 				6BA9678821F22CF000DE5331 /* AppDelegate.swift */,
 				6BA9678A21F22CF100DE5331 /* Assets.xcassets */,
 				6BA9678C21F22CF100DE5331 /* MainMenu.xib */,
 				6BA9678F21F22CF100DE5331 /* Info.plist */,
 				6BA9679021F22CF100DE5331 /* textGO.entitlements */,
+				6BA967B221F2306800DE5331 /* TextGOViewController.swift */,
+				6BA967B321F2306800DE5331 /* TextGOViewController.xib */,
 			);
 			path = textGO;
 			sourceTree = "<group>";
@@ -227,6 +236,7 @@
 			files = (
 				6BA9678B21F22CF100DE5331 /* Assets.xcassets in Resources */,
 				6BA9678E21F22CF100DE5331 /* MainMenu.xib in Resources */,
+				6BA967B521F2306800DE5331 /* TextGOViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA9678921F22CF000DE5331 /* AppDelegate.swift in Sources */,
+				6BA967B721F2358700DE5331 /* PopoverMonitor.swift in Sources */,
+				6BA967B421F2306800DE5331 /* TextGOViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
