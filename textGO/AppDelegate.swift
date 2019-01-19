@@ -22,6 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named: "statusIcon")
             button.action = #selector(togglePopoverView)
+            button.window?.delegate = self
+            button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType")])
         }
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
@@ -54,5 +56,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             openPopoverView(sender)
         }
     }
+}
+
+extension AppDelegate: NSWindowDelegate, NSDraggingDestination {
+    
+    func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        if let button = statusItem.button {
+            button.image = NSImage(named: "uploadIcon")
+        }
+        return .copy
+    }
+    
+    func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        if sender.isImageFile {
+            print(sender.draggedFileURL!)
+            return true
+        }
+        return false
+    }
+    
+    func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        return true
+    }
+    
+    func draggingExited(_ sender: NSDraggingInfo?) {
+        if let button = statusItem.button {
+            button.image = NSImage(named: "statusIcon")
+        }
+    }
+    
+    func draggingEnded(_ sender: NSDraggingInfo) {
+        if let button = statusItem.button {
+            button.image = NSImage(named: "statusIcon")
+        }
+    }
+    
 }
 
