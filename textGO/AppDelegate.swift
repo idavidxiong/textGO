@@ -12,49 +12,26 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-
-    @IBOutlet weak var popover: NSPopover!
-    
-    var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         if let button = statusItem.button {
             button.image = NSImage(named: "statusIcon")
-            button.action = #selector(togglePopoverView)
             button.window?.delegate = self
             button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType")])
         }
-        
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
-            if let strongSelf = self, strongSelf.popover.isShown {
-                strongSelf.closePopoverView(event!)
-            }
-        }
+        constructMenu()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    @objc func openPopoverView(_ sender: AnyObject) {
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-        }
-        eventMonitor?.start()
-    }
-    
-    @objc func closePopoverView(_ sender: AnyObject) {
-        popover.performClose(sender)
-        eventMonitor?.stop()
-    }
-
-    @objc func togglePopoverView(_ sender: AnyObject) {
-        if popover.isShown {
-            closePopoverView(sender)
-        } else {
-            openPopoverView(sender)
-        }
+    func constructMenu() {
+        let menu = NSMenu()
+//        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "退出", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        statusItem.menu = menu
     }
 }
 
