@@ -12,8 +12,10 @@ import Cocoa
 class BaiduAI {
     
     enum ErrorType: Int {
-        case accessTokenInvalid = 110
-        case connectInvalid = 111
+        case accessTokenInvalid = 110   // 无效的 access token
+        case connectInvalid = 111       // 连接错误
+        case openApiLimited = 17        // 每日的限制次数已达上限
+        case resultEmpty                // 没有结果
     }
     
     private var tryCount: Int = 0
@@ -90,28 +92,34 @@ class BaiduAI {
         let task = session.dataTask(with: request) {(data, response, error) in
             do {
                 let r = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                if let error_code = r.value(forKey: "error_code") as? ErrorType {
-                    if self.delegate != nil {
-                        self.delegate.ocrError(type: error_code, msg: r.value(forKey: "error_msg") as! String)
-                    }
-                    if error_code == ErrorType.accessTokenInvalid {
-                        if self.tryCount < 3 {
-                            self.tryCount += 1
-                            self.getAccessToken()
-                            self.ocr(imgData)
+                if let errorCode = r.value(forKey: "error_code") as? Int {
+                    if let errorType = ErrorType(rawValue: errorCode) {
+                        if self.delegate != nil {
+                            self.delegate.ocrError(type: errorType, msg: r.value(forKey: "error_msg") as! String)
                         }
+                        if errorType == ErrorType.accessTokenInvalid {
+                            if self.tryCount < 3 {
+                                self.tryCount += 1
+                                self.updateAccessToken()
+                                self.ocr(imgData)
+                            }
+                        }
+                    } else {
+                        print(r)
                     }
                 } else {
-                    let wordsResult = r.value(forKey: "words_result") as! NSArray
-                    var wordsArray = [String]()
-                    for lineResult in wordsResult {
-                        let words = (lineResult as! NSDictionary).value(forKey: "words") as! String
-                        wordsArray.append(words)
-                    }
-                    let wordsStr = wordsArray.joined(separator: "\n")
-                    print(wordsStr)
-                    if self.delegate != nil {
+                    if let wordsResult = r.value(forKey: "words_result") as? NSArray {
+                        var wordsArray = [String]()
+                        for lineResult in wordsResult {
+                            let words = (lineResult as! NSDictionary).value(forKey: "words") as! String
+                            wordsArray.append(words)
+                        }
+                        let wordsStr = wordsArray.joined(separator: "\n")
                         self.delegate.ocrResult(text: wordsStr)
+                    } else {
+                        if self.delegate != nil {
+                            self.delegate.ocrError(type: ErrorType.resultEmpty, msg: "result is empty")
+                        }
                     }
                 }
             } catch {
@@ -129,7 +137,7 @@ class BaiduAI {
         return b64Str.urlEncoded
     }
     
-    private func getAccessToken() {
+    func updateAccessToken() {
         if apiKey == "" || secretKey == "" {
             accessToken = nil
             return

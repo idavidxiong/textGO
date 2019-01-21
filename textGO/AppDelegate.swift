@@ -19,9 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named: "statusIcon")
             button.window?.delegate = self
-            button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType"), NSPasteboard.PasteboardType.fileContents])
+            button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType")])
         }
         constructMenu()
+        baiduAI.delegate = self
         baiduAI.apiKey = "HGuY2oEGhPQAPC5VQrRIA40S"
         baiduAI.secretKey = "L3SUNohBY5vnAndfkp8IKYtPwv5Td908"
     }
@@ -49,7 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        let filePath = NSHomeDirectory() + "/Documents/test.png"
 //        print(filePath)
 //        try? pngData.write(to: URL(fileURLWithPath: filePath))
-        
     }
     
 }
@@ -57,10 +57,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate: NSWindowDelegate, NSDraggingDestination {
     
     func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
-        if let button = statusItem.button {
-            button.image = NSImage(named: "uploadIcon")
+        if sender.isImageFile {
+            if let button = statusItem.button {
+                button.image = NSImage(named: "uploadIcon")
+            }
+            return .copy
         }
-        return .copy
+        return .generic
     }
     
     func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
@@ -97,7 +100,8 @@ extension AppDelegate: BaiduAIDelegate {
         print(msg)
     }
     func ocrResult(text: String) {
-        print(text)
+        NSPasteboard.general.declareTypes([.string], owner: nil)
+        NSPasteboard.general.setString(text, forType: .string)
     }
 }
 
