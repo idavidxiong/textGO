@@ -11,6 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    let baiduAI = BaiduAI()
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -18,9 +19,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named: "statusIcon")
             button.window?.delegate = self
-            button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType")])
+            button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType"), NSPasteboard.PasteboardType.fileContents])
         }
         constructMenu()
+        baiduAI.apiKey = "HGuY2oEGhPQAPC5VQrRIA40S"
+        baiduAI.secretKey = "L3SUNohBY5vnAndfkp8IKYtPwv5Td908"
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -29,10 +32,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func constructMenu() {
         let menu = NSMenu()
-//        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "退出", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        menu.addItem(withTitle: "截图识别", action: #selector(screenshotAndOCR), keyEquivalent: "s")
+        menu.addItem(.separator())
+        menu.addItem(withTitle: "偏好设置", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ",")
+        menu.addItem(.separator())
+        menu.addItem(withTitle: "退出", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         statusItem.menu = menu
     }
+    
+    @objc func screenshotAndOCR() {
+//        let displayID = CGMainDisplayID()
+//        let imageRef = CGDisplayCreateImage(displayID, rect: CGRect(x: 500, y: 500, width: 200, height: 200))
+//        let bitmapRep = NSBitmapImageRep(cgImage: imageRef!)
+//        let pngData = bitmapRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])!
+////        let img = NSImage(data: pngData)!
+//        let filePath = NSHomeDirectory() + "/Documents/test.png"
+//        print(filePath)
+//        try? pngData.write(to: URL(fileURLWithPath: filePath))
+        
+    }
+    
 }
 
 extension AppDelegate: NSWindowDelegate, NSDraggingDestination {
@@ -46,7 +65,9 @@ extension AppDelegate: NSWindowDelegate, NSDraggingDestination {
     
     func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         if sender.isImageFile {
-            print(sender.draggedFileURL!)
+            let imgurl = sender.draggedFileURL!.absoluteURL
+            let imgData = NSData(contentsOf: imgurl!)
+            baiduAI.ocr(imgData!)
             return true
         }
         return false
@@ -68,5 +89,15 @@ extension AppDelegate: NSWindowDelegate, NSDraggingDestination {
         }
     }
     
+}
+
+extension AppDelegate: BaiduAIDelegate {
+    func ocrError(type: BaiduAI.ErrorType, msg: String) {
+        print(type)
+        print(msg)
+    }
+    func ocrResult(text: String) {
+        print(text)
+    }
 }
 

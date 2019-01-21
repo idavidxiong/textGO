@@ -13,6 +13,7 @@
 		6BA9679A21F22CF200DE5331 /* textGOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9679921F22CF200DE5331 /* textGOTests.swift */; };
 		6BA967A521F22CF200DE5331 /* textGOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967A421F22CF200DE5331 /* textGOUITests.swift */; };
 		6BA967B921F356C000DE5331 /* NSDragingInfoExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967B821F356C000DE5331 /* NSDragingInfoExt.swift */; };
+		6BA967BD21F4383900DE5331 /* BaiduAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967BC21F4383900DE5331 /* BaiduAI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		6BA967A421F22CF200DE5331 /* textGOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textGOUITests.swift; sourceTree = "<group>"; };
 		6BA967A621F22CF200DE5331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA967B821F356C000DE5331 /* NSDragingInfoExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDragingInfoExt.swift; sourceTree = "<group>"; };
+		6BA967BC21F4383900DE5331 /* BaiduAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduAI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				6BA9678F21F22CF100DE5331 /* Info.plist */,
 				6BA9679021F22CF100DE5331 /* textGO.entitlements */,
 				6BA967B821F356C000DE5331 /* NSDragingInfoExt.swift */,
+				6BA967BC21F4383900DE5331 /* BaiduAI.swift */,
 			);
 			path = textGO;
 			sourceTree = "<group>";
@@ -192,6 +195,11 @@
 				TargetAttributes = {
 					6BA9678421F22CF000DE5331 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					6BA9679421F22CF200DE5331 = {
 						CreatedOnToolsVersion = 10.1;
@@ -256,6 +264,7 @@
 			files = (
 				6BA9678921F22CF000DE5331 /* AppDelegate.swift in Sources */,
 				6BA967B921F356C000DE5331 /* NSDragingInfoExt.swift in Sources */,
+				6BA967BD21F4383900DE5331 /* BaiduAI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
