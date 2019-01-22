@@ -32,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             win.title = "偏好设置"
             win.minSize = NSSize(width: 420, height: 150)
             win.maxSize = NSSize(width: 420, height: 150)
+            win.titlebarAppearsTransparent = true
         }
     }
 
