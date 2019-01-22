@@ -18,7 +18,13 @@ class BaiduAI {
         case resultEmpty                // 没有结果
     }
     
+    enum OcrUrl: String {
+        case basic = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token="
+        case accurate = "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token="
+    }
+    
     private var tryCount: Int = 0
+    private var ocrUrl = OcrUrl.accurate
     var delegate: BaiduAIDelegate!
     private var _baiduParams: [String: String]? = [String: String]()
     var baiduParams: [String: String]? {
@@ -80,7 +86,7 @@ class BaiduAI {
         }
         
         let session = URLSession(configuration: .default)
-        let url = URL(string: "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token=\(accessToken ?? "")")
+        let url = URL(string: "\(ocrUrl.rawValue)\(accessToken ?? "")")
         var request = URLRequest(url: url!)
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -97,12 +103,14 @@ class BaiduAI {
                         if self.delegate != nil {
                             self.delegate.ocrError(type: errorType, msg: r.value(forKey: "error_msg") as! String)
                         }
-                        if errorType == ErrorType.accessTokenInvalid {
-                            if self.tryCount < 3 {
-                                self.tryCount += 1
-                                self.updateAccessToken()
-                                self.ocr(imgData)
-                            }
+                        switch (errorType) {
+                        case ErrorType.accessTokenInvalid:
+                            self.updateAccessToken()
+                        case ErrorType.openApiLimited:
+                            self.ocrUrl = OcrUrl.basic
+                            self.ocr(imgData)
+                        default:
+                            print("")
                         }
                     } else {
                         print(r)

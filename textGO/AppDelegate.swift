@@ -42,14 +42,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func screenshotAndOCR() {
-//        let displayID = CGMainDisplayID()
-//        let imageRef = CGDisplayCreateImage(displayID, rect: CGRect(x: 500, y: 500, width: 200, height: 200))
-//        let bitmapRep = NSBitmapImageRep(cgImage: imageRef!)
-//        let pngData = bitmapRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])!
-////        let img = NSImage(data: pngData)!
-//        let filePath = NSHomeDirectory() + "/Documents/test.png"
-//        print(filePath)
-//        try? pngData.write(to: URL(fileURLWithPath: filePath))
+
+        let task = Process()
+        task.launchPath = "/usr/sbin/screencapture"
+        task.arguments = ["-i", "-c"]
+        task.launch()
+        task.waitUntilExit()
+        
+        if (NSPasteboard.general.types?.contains(NSPasteboard.PasteboardType.png))! {
+            let imgData = NSPasteboard.general.data(forType: NSPasteboard.PasteboardType.png)
+            baiduAI.ocr(imgData! as NSData)
+        }
+        
     }
     
 }
