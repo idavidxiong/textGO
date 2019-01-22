@@ -41,11 +41,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func constructMenu() {
         let menu = NSMenu()
+        let helpMenu = NSMenu()
+        let mainDropdown = NSMenuItem(title: "帮助选项", action: nil, keyEquivalent: "")
+        
+        helpMenu.addItem(withTitle: "教程", action: #selector(howToUse), keyEquivalent: "")
+        helpMenu.addItem(withTitle: "反馈", action: #selector(feedbackApp), keyEquivalent: "")
+        helpMenu.addItem(withTitle: "关于", action: #selector(showAboutMe), keyEquivalent: "")
+        
         menu.addItem(withTitle: "截图识别", action: #selector(screenshotAndOCR), keyEquivalent: "s")
         menu.addItem(.separator())
         menu.addItem(withTitle: "偏好设置...", action: #selector(preferencesWindow), keyEquivalent: ",")
         menu.addItem(.separator())
-        menu.addItem(withTitle: "关于 textGO", action: #selector(showAboutMe), keyEquivalent: "")
+        menu.addItem(mainDropdown)
+        menu.setSubmenu(helpMenu, for: mainDropdown)
         menu.addItem(.separator())
         menu.addItem(withTitle: "退出 textGO", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         statusItem.menu = menu
@@ -72,7 +80,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showAboutMe() {
-        tipInfo(withTitle:"关于", withMessage: "textGO 帮助您提取图片中的文字。")
+        tipInfo(withTitle:"关于", withMessage: "\(getAppInfo()) 帮助您提取图片中的文字。")
+    }
+    
+    @objc func feedbackApp() {
+        let emailBody           = ""
+        let emailService        =  NSSharingService.init(named: NSSharingService.Name.composeEmail)!
+        emailService.recipients = ["5km@smslit.cn"]
+        emailService.subject    = "textGO 反馈"
+        
+        if emailService.canPerform(withItems: [emailBody]) {
+            emailService.perform(withItems: [emailBody])
+        } else {
+            tipInfo(withTitle: "反馈信息", withMessage: "您有什么问题向 5km@smslit.cn 发送邮件反馈即可！感谢您的支持！")
+        }
+    }
+    
+    @objc func howToUse() {
+        
     }
     
 }
