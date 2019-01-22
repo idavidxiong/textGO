@@ -15,6 +15,12 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var secretKeyFeild: NSTextField!
     
     override func viewDidLoad() {
+        
+        let visualEffect = self.view as! NSVisualEffectView
+        visualEffect.blendingMode = .behindWindow
+        visualEffect.state = .active
+        visualEffect.material = .appearanceBased
+        
         super.viewDidLoad()
         
         versionLabel.stringValue = getAppInfo()

@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             win.minSize = NSSize(width: 420, height: 150)
             win.maxSize = NSSize(width: 420, height: 150)
             win.titlebarAppearsTransparent = true
+            win.styleMask.insert(NSWindow.StyleMask.fullSizeContentView)
         }
     }
 
@@ -76,8 +77,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func preferencesWindow() {
-        settingWinC.showWindow(self)
         settingWinC.window!.makeKeyAndOrderFront(self)
+        settingWinC.showWindow(self)
     }
     
     @objc func showAboutMe() {
