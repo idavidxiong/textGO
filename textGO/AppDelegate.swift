@@ -14,6 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let baiduAI = BaiduAI()
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
+    let settingWinC: NSWindowController = NSWindowController(window: NSWindow(contentViewController: SettingsViewController()))
+  
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         if let button = statusItem.button {
@@ -21,10 +23,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.window?.delegate = self
             button.window?.registerForDraggedTypes([NSPasteboard.PasteboardType("NSFilenamesPboardType")])
         }
+        
         constructMenu()
+        
         baiduAI.delegate = self
-        baiduAI.apiKey = "HGuY2oEGhPQAPC5VQrRIA40S"
-        baiduAI.secretKey = "L3SUNohBY5vnAndfkp8IKYtPwv5Td908"
+        
+        if let win = settingWinC.window {
+            win.title = "偏好设置"
+            win.minSize = NSSize(width: 420, height: 150)
+            win.maxSize = NSSize(width: 420, height: 150)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -35,9 +43,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let menu = NSMenu()
         menu.addItem(withTitle: "截图识别", action: #selector(screenshotAndOCR), keyEquivalent: "s")
         menu.addItem(.separator())
-        menu.addItem(withTitle: "偏好设置", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ",")
+        menu.addItem(withTitle: "偏好设置...", action: #selector(preferencesWindow), keyEquivalent: ",")
         menu.addItem(.separator())
-        menu.addItem(withTitle: "退出", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        menu.addItem(withTitle: "退出 textGO", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         statusItem.menu = menu
     }
     
@@ -54,6 +62,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             baiduAI.ocr(imgData! as NSData)
         }
         
+    }
+    
+    @objc func preferencesWindow() {
+        settingWinC.showWindow(self)
+        settingWinC.window!.makeKeyAndOrderFront(self)
     }
     
 }
