@@ -45,6 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(.separator())
         menu.addItem(withTitle: "偏好设置...", action: #selector(preferencesWindow), keyEquivalent: ",")
         menu.addItem(.separator())
+        menu.addItem(withTitle: "关于 textGO", action: #selector(showAboutMe), keyEquivalent: "")
+        menu.addItem(.separator())
         menu.addItem(withTitle: "退出 textGO", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         statusItem.menu = menu
     }
@@ -67,6 +69,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func preferencesWindow() {
         settingWinC.showWindow(self)
         settingWinC.window!.makeKeyAndOrderFront(self)
+    }
+    
+    @objc func showAboutMe() {
+        tipInfo(withTitle:"关于", withMessage: "textGO 帮助您提取图片中的文字。")
     }
     
 }
