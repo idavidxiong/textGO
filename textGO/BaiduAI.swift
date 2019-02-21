@@ -109,6 +109,9 @@ class BaiduAI {
                         case ErrorType.openApiLimited:
                             self.ocrUrl = OcrUrl.basic
                             self.ocr(imgData)
+                        case ErrorType.connectInvalid:  // 此时的错误是 Access token expired
+                            self.updateAccessToken()
+                            self.ocr(imgData)
                         default:
                             print("")
                         }
