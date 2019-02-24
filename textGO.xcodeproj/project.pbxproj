@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B4952FC222220BC0067596F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B4952FE222220BC0067596F /* InfoPlist.strings */; };
 		6B4953032222297D0067596F /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4953052222297D0067596F /* SettingsViewController.xib */; };
+		6B49531222222FE60067596F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B49531422222FE60067596F /* Localizable.strings */; };
 		6BA9678921F22CF000DE5331 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9678821F22CF000DE5331 /* AppDelegate.swift */; };
 		6BA9678B21F22CF100DE5331 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9678A21F22CF100DE5331 /* Assets.xcassets */; };
 		6BA9678E21F22CF100DE5331 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9678C21F22CF100DE5331 /* MainMenu.xib */; };
@@ -54,6 +55,11 @@
 		6B49530B222229820067596F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		6B49530D222229830067596F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
 		6B49530F222229840067596F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
+		6B49531322222FE60067596F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6B49531522222FE70067596F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6B49531622222FEB0067596F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6B49531722222FEC0067596F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6B49531822222FED0067596F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6BA9678521F22CF000DE5331 /* textGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9678821F22CF000DE5331 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA9678A21F22CF100DE5331 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				6BC33F1C21F6D27600C5DAFD /* SettingsViewController.swift */,
 				6B4953052222297D0067596F /* SettingsViewController.xib */,
 				6B4952FE222220BC0067596F /* InfoPlist.strings */,
+				6B49531422222FE60067596F /* Localizable.strings */,
 			);
 			path = textGO;
 			sourceTree = "<group>";
@@ -266,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B49531222222FE60067596F /* Localizable.strings in Resources */,
 				6BA9678B21F22CF100DE5331 /* Assets.xcassets in Resources */,
 				6B4952FC222220BC0067596F /* InfoPlist.strings in Resources */,
 				6B4953032222297D0067596F /* SettingsViewController.xib in Resources */,
@@ -357,6 +365,18 @@
 				6B49530F222229840067596F /* ko */,
 			);
 			name = SettingsViewController.xib;
+			sourceTree = "<group>";
+		};
+		6B49531422222FE60067596F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B49531322222FE60067596F /* en */,
+				6B49531522222FE70067596F /* zh-Hans */,
+				6B49531622222FEB0067596F /* zh-Hant */,
+				6B49531722222FEC0067596F /* ja */,
+				6B49531822222FED0067596F /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		6BA9678C21F22CF100DE5331 /* MainMenu.xib */ = {

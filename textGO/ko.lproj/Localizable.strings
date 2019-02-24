@@ -1,0 +1,42 @@
+
+/* 提示窗口确定按钮的标题 */
+"tip-info-button.titile" = "OK";
+
+/* 设置窗口的标题 */
+"setting-window.title" = "Preferences";
+
+/* 关于窗口的消息：帮助您提取图片中的文字。 */
+"about-window.message" = "helps you to get text from a picture";
+
+/* 关于窗口的标题：关于 */
+"about-window.title" = "About";
+
+/* 反馈邮件的标题：textGO 反馈 */
+"feedback-email.subject" = "Feedback for textGO";
+
+/* 反馈出错窗口的消息：您有什么问题向 5km@smslit.cn 发送邮件反馈即可！感谢您的支持！ */
+"feedback-warning-window.message" = "If you have problems and advice, may you feedback to me with a email to 5km@smslit.cn. Thanks for your surpport!";
+
+/* 反馈出错窗口的标题：问题反馈 */
+"feedback-warning-window.title" = "Feedback";
+
+/* 菜单栏截图识别按钮标题：截图识别 */
+"menu-item-capture-ocr.title" = "Screenshot And OCR";
+
+/* 菜单栏帮助选项按钮标题：关于 */
+"menu-item-help-about.title" = "About";
+
+/* 菜单栏帮助选项按钮标题：反馈 */
+"menu-item-help-feedback.title" = "Feedback";
+
+/* 菜单栏帮助选项按钮标题：教程 */
+"menu-item-help-tutorial.title" = "Tutorial";
+
+/* 菜单栏帮助选项按钮标题：帮助选项 */
+"menu-item-help.title" = "Help";
+
+/* 菜单栏偏好设置按钮标题：偏好设置... */
+"menu-item-preferences.title" = "Preferences...";
+
+/* 菜单栏退出按钮标题：退出 文析 */
+"menu-item-quit.title" = "Quit text GO";

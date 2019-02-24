@@ -1,0 +1,42 @@
+
+/* 提示窗口确定按钮的标题 */
+"tip-info-button.titile" = "確定";
+
+/* 设置窗口的标题 */
+"setting-window.title" = "偏好設置";
+
+/* 关于窗口的消息：帮助您提取图片中的文字。 */
+"about-window.message" = "帮助您提取图片中的文字。";
+
+/* 关于窗口的标题：关于 */
+"about-window.title" = "关于";
+
+/* 反馈邮件的标题：textGO 反馈 */
+"feedback-email.subject" = "text GO 反馈";
+
+/* 反馈出错窗口的消息：您有什么问题向 5km@smslit.cn 发送邮件反馈即可！感谢您的支持！ */
+"feedback-warning-window.message" = "您有什么问题向 5km@smslit.cn 发送邮件反馈即可！感谢您的支持！";
+
+/* 反馈出错窗口的标题：问题反馈 */
+"feedback-warning-window.title" = "问题反馈";
+
+/* 菜单栏截图识别按钮标题：截图识别 */
+"menu-item-capture-ocr.title" = "截图识别";
+
+/* 菜单栏帮助选项按钮标题：关于 */
+"menu-item-help-about.title" = "关于";
+
+/* 菜单栏帮助选项按钮标题：反馈 */
+"menu-item-help-feedback.title" = "反馈";
+
+/* 菜单栏帮助选项按钮标题：教程 */
+"menu-item-help-tutorial.title" = "教程";
+
+/* 菜单栏帮助选项按钮标题：帮助选项 */
+"menu-item-help.title" = "帮助选项";
+
+/* 菜单栏偏好设置按钮标题：偏好设置... */
+"menu-item-preferences.title" = "偏好设置...";
+
+/* 菜单栏退出按钮标题：退出 文析 */
+"menu-item-quit.title" = "退出 文析";

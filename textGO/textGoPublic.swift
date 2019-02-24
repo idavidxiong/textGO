@@ -18,7 +18,7 @@ func tipInfo(withTitle: String, withMessage: String) {
     let alert = NSAlert()
     alert.messageText = withTitle
     alert.informativeText = withMessage
-    alert.addButton(withTitle: "确定")
+    alert.addButton(withTitle: NSLocalizedString("tip-info-button.titile", comment: "提示窗口确定按钮的标题：确定"))
     alert.window.titlebarAppearsTransparent = true
     alert.runModal()
 }
