@@ -1,0 +1,15 @@
+
+/* Class = "NSTextFieldCell"; title = "secret key:"; ObjectID = "1vv-IU-jQH"; */
+"1vv-IU-jQH.title" = "secret key:";
+
+/* Class = "NSButtonCell"; title = "保存"; ObjectID = "d13-Qk-5yq"; */
+"d13-Qk-5yq.title" = "保存";
+
+/* Class = "NSTextFieldCell"; title = "textGO"; ObjectID = "kpj-jv-ew9"; */
+"kpj-jv-ew9.title" = "text GO";
+
+/* Class = "NSTextFieldCell"; title = "api key:"; ObjectID = "x2s-e0-zNc"; */
+"x2s-e0-zNc.title" = "api key:";
+
+/* Class = "NSButtonCell"; title = "重置"; ObjectID = "xYI-1t-fxx"; */
+"xYI-1t-fxx.title" = "重置";

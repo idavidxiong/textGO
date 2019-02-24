@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B4952FC222220BC0067596F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B4952FE222220BC0067596F /* InfoPlist.strings */; };
+		6B4953032222297D0067596F /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4953052222297D0067596F /* SettingsViewController.xib */; };
 		6BA9678921F22CF000DE5331 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA9678821F22CF000DE5331 /* AppDelegate.swift */; };
 		6BA9678B21F22CF100DE5331 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9678A21F22CF100DE5331 /* Assets.xcassets */; };
 		6BA9678E21F22CF100DE5331 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA9678C21F22CF100DE5331 /* MainMenu.xib */; };
@@ -16,7 +17,6 @@
 		6BA967B921F356C000DE5331 /* NSDragingInfoExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967B821F356C000DE5331 /* NSDragingInfoExt.swift */; };
 		6BA967BD21F4383900DE5331 /* BaiduAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA967BC21F4383900DE5331 /* BaiduAI.swift */; };
 		6BC33F1E21F6D27600C5DAFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC33F1C21F6D27600C5DAFD /* SettingsViewController.swift */; };
-		6BC33F1F21F6D27600C5DAFD /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC33F1D21F6D27600C5DAFD /* SettingsViewController.xib */; };
 		6BC33F2121F6D81200C5DAFD /* textGoPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC33F2021F6D81200C5DAFD /* textGoPublic.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +48,12 @@
 		6B495300222220BE0067596F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6B495301222220BF0067596F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B495302222220C10067596F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6B4953042222297D0067596F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsViewController.xib; sourceTree = "<group>"; };
+		6B4953072222297F0067596F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
+		6B495309222229800067596F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
+		6B49530B222229820067596F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
+		6B49530D222229830067596F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
+		6B49530F222229840067596F /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
 		6BA9678521F22CF000DE5331 /* textGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA9678821F22CF000DE5331 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BA9678A21F22CF100DE5331 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +69,6 @@
 		6BA967B821F356C000DE5331 /* NSDragingInfoExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDragingInfoExt.swift; sourceTree = "<group>"; };
 		6BA967BC21F4383900DE5331 /* BaiduAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduAI.swift; sourceTree = "<group>"; };
 		6BC33F1C21F6D27600C5DAFD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		6BC33F1D21F6D27600C5DAFD /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		6BC33F2021F6D81200C5DAFD /* textGoPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textGoPublic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +129,7 @@
 				6BA967B821F356C000DE5331 /* NSDragingInfoExt.swift */,
 				6BA967BC21F4383900DE5331 /* BaiduAI.swift */,
 				6BC33F1C21F6D27600C5DAFD /* SettingsViewController.swift */,
-				6BC33F1D21F6D27600C5DAFD /* SettingsViewController.xib */,
+				6B4953052222297D0067596F /* SettingsViewController.xib */,
 				6B4952FE222220BC0067596F /* InfoPlist.strings */,
 			);
 			path = textGO;
@@ -263,7 +268,7 @@
 			files = (
 				6BA9678B21F22CF100DE5331 /* Assets.xcassets in Resources */,
 				6B4952FC222220BC0067596F /* InfoPlist.strings in Resources */,
-				6BC33F1F21F6D27600C5DAFD /* SettingsViewController.xib in Resources */,
+				6B4953032222297D0067596F /* SettingsViewController.xib in Resources */,
 				6BA9678E21F22CF100DE5331 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +344,19 @@
 				6B495302222220C10067596F /* ko */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6B4953052222297D0067596F /* SettingsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B4953042222297D0067596F /* Base */,
+				6B4953072222297F0067596F /* en */,
+				6B495309222229800067596F /* zh-Hans */,
+				6B49530B222229820067596F /* zh-Hant */,
+				6B49530D222229830067596F /* ja */,
+				6B49530F222229840067596F /* ko */,
+			);
+			name = SettingsViewController.xib;
 			sourceTree = "<group>";
 		};
 		6BA9678C21F22CF100DE5331 /* MainMenu.xib */ = {
