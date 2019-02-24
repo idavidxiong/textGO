@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  textGO
+
+  Created by 5km on 2019/2/24.
+  Copyright © 2019 5km. All rights reserved.
+*/
+
+"CFBundleName" = "文析";
+"CFBundleDisplayName" = "文析";
