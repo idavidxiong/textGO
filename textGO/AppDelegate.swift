@@ -99,7 +99,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func howToUse() {
-        
+        NSWorkspace.shared.open(URL(string: "https://www.smslit.top/2019/01/22/textGO/")!)
     }
     
 }
