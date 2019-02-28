@@ -9,7 +9,7 @@ import Cocoa
 
 func getAppInfo() -> String {
     let infoDic = Bundle.main.infoDictionary
-    let appNameStr = infoDic?["CFBundleName"] as! String
+    let appNameStr = NSLocalizedString("app-info-name", comment: "app display name: Text Go")
     let versionStr = infoDic?["CFBundleShortVersionString"] as! String
     return appNameStr + " v" + versionStr
 }

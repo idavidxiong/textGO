@@ -12,7 +12,7 @@
 "about-window.title" = "About";
 
 /* 反馈邮件的标题：textGO 反馈 */
-"feedback-email.subject" = "Feedback for textGO";
+"feedback-email.subject" = "Feedback for TextGo";
 
 /* 反馈出错窗口的消息：您有什么问题向 5km@smslit.cn 发送邮件反馈即可！感谢您的支持！ */
 "feedback-warning-window.message" = "If you have problems and advice, may you feedback to me with a email to 5km@smslit.cn. Thanks for your surpport!";
@@ -40,3 +40,6 @@
 
 /* 菜单栏退出按钮标题：退出 文析 */
 "menu-item-quit.title" = "Quit text GO";
+
+/* app display name: Text Go */
+"app-info-name" = "Text Go";

@@ -3,7 +3,7 @@ tasks = ["interfaces", "code", "normalize"]
 
 [update.interfaces]
 path = "."
-defaultToBase = true
+defaultToBase = false
 ignoreEmptyStrings = false
 unstripped = false
 
